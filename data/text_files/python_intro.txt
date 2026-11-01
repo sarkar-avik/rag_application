@@ -1,0 +1,414 @@
+PYTHON PROGRAMMING INTRODUCTION
+
+1. What Is Python?
+
+Python is a high-level, general-purpose programming language known for
+readable syntax and a large ecosystem of libraries. It is used in
+automation, web development, data analysis, machine learning, artificial
+intelligence, scripting, and application development.
+
+Python is dynamically typed: a variable does not need an explicit type
+declaration. The interpreter determines the type of the value at
+runtime.
+
+Example:
+
+    name = "Mira"
+    age = 27
+    height = 1.68
+    is_active = True
+
+The equals sign assigns a value to a variable. It does not mean
+mathematical equality in an assignment statement.
+
+2. Basic Data Types
+
+Common built-in types include:
+
+-   int: whole numbers, such as 10 or -4.
+-   float: decimal numbers, such as 3.14 or 0.5.
+-   str: text, such as “Python”.
+-   bool: Boolean values, True and False.
+-   NoneType: the type of the special value None, which represents the
+    absence of a value.
+
+The type() function returns the type of an object.
+
+Example:
+
+    quantity = 12
+    price = 19.99
+    product = "Notebook"
+
+    print(type(quantity))
+    print(type(price))
+    print(type(product))
+
+Type conversion changes a value from one type to another when the
+conversion is valid.
+
+    age_text = "28"
+    age_number = int(age_text)
+
+    score = 92
+    score_text = str(score)
+
+Converting invalid text to an integer raises a ValueError. Conversion
+should be handled when input may be invalid.
+
+3. Variables and Naming
+
+A variable is a name that refers to an object. Use descriptive names
+that communicate purpose.
+
+Recommended conventions: - Use lowercase words separated by underscores:
+customer_name. - Avoid names that differ only by capitalisation. - Do
+not use Python keywords such as class, for, or return as variable
+names. - Prefer meaningful names over single letters, except for short
+mathematical examples or conventional loop counters.
+
+Python is case-sensitive. user_name and User_Name are different names.
+
+4. Operators
+
+Arithmetic operators: - + addition - - subtraction - * multiplication -
+/ division, which returns a floating-point result - // floor division -
+% remainder or modulo - ** exponentiation
+
+Comparison operators: - == equal to - != not equal to - > greater than -
+< less than - >= greater than or equal to - <= less than or equal to
+
+Logical operators: - and: True when both conditions are true. - or: True
+when at least one condition is true. - not: reverses a Boolean value.
+
+Assignment operators include =, +=, -=, *=, and /=.
+
+Example:
+
+    balance = 100
+    balance += 25
+    has_funds = balance >= 100
+
+5. Strings
+
+A string is an immutable sequence of Unicode characters. Strings can be
+created with single quotes, double quotes, or triple quotes.
+
+    language = "Python"
+    message = f"I am learning {language}."
+
+An f-string inserts expressions into a string using braces.
+
+Useful string operations: - lower(): converts letters to lowercase. -
+upper(): converts letters to uppercase. - strip(): removes leading and
+trailing whitespace. - replace(old, new): returns a string with
+replacements. - split(separator): splits a string into a list. -
+join(iterable): joins strings using a separator. - startswith(prefix):
+checks the beginning of a string. - find(substring): returns the first
+index or -1 when not found.
+
+Example:
+
+    raw_text = "  Machine Learning  "
+    cleaned_text = raw_text.strip().lower()
+    words = cleaned_text.split()
+
+Strings are immutable, so methods return new strings rather than
+modifying the original string in place.
+
+6. Collections: List, Tuple, Set, and Dictionary
+
+List: An ordered, mutable collection that allows duplicate values.
+
+    skills = ["Python", "SQL", "NLP"]
+    skills.append("Machine Learning")
+    first_skill = skills[0]
+
+List indexes start at zero. Negative indexes count from the end. A slice
+such as skills[0:2] returns items from index zero up to, but not
+including, index two.
+
+Tuple: An ordered, immutable collection. It is useful for fixed groups
+of values.
+
+    coordinates = (22.57, 88.36)
+
+Set: An unordered collection of unique elements. It is useful for
+removing duplicates and performing set operations.
+
+    categories = {"news", "sports", "news"}
+    unique_categories = set(categories)
+
+Dictionary: A mutable mapping of keys to values. Keys must be hashable.
+
+    employee = {
+        "name": "Mira",
+        "department": "Analytics",
+        "experience_years": 3
+    }
+
+    department = employee["department"]
+    employee["location"] = "Kolkata"
+
+Use get() when a key may not exist:
+
+    manager = employee.get("manager", "Not specified")
+
+Direct indexing with a missing key raises KeyError, while get() returns
+None or the supplied default.
+
+7. Conditional Statements
+
+Conditional statements execute code based on whether an expression is
+true or false.
+
+    score = 76
+
+    if score >= 90:
+        grade = "A"
+    elif score >= 75:
+        grade = "B"
+    else:
+        grade = "C"
+
+Python uses indentation to define code blocks. Consistent four-space
+indentation is the standard convention.
+
+A condition can combine comparisons with and, or, and not. Be careful
+with operator precedence; use parentheses when they improve clarity.
+
+8. Loops
+
+A for loop iterates over items in an iterable, such as a list, string,
+tuple, or range.
+
+    languages = ["Python", "Java", "Go"]
+
+    for language in languages:
+        print(language)
+
+range(stop) generates integers starting at zero and ending before stop.
+range(start, stop, step) allows a starting value and step size.
+
+A while loop repeats as long as its condition remains true.
+
+    count = 0
+    while count < 3:
+        print(count)
+        count += 1
+
+The break statement exits the nearest loop. The continue statement skips
+the rest of the current iteration and moves to the next one.
+
+9. Functions
+
+A function is a reusable block of code defined with def. Functions can
+accept parameters and return results.
+
+    def calculate_total(price, quantity):
+        total = price * quantity
+        return total
+
+    amount = calculate_total(25, 4)
+
+Parameters are names in a function definition. Arguments are the values
+passed when calling the function.
+
+A function without an explicit return statement returns None.
+
+Python supports default arguments:
+
+    def greet(name, greeting="Hello"):
+        return f"{greeting}, {name}!"
+
+Avoid using mutable objects such as lists as default argument values
+unless the behaviour is intentional. Default values are evaluated once
+when the function is defined.
+
+A docstring is a string placed at the beginning of a function, class, or
+module to describe its purpose.
+
+10. Error Handling
+
+Errors can occur because of invalid input, missing files, incorrect
+types, or unexpected conditions. Python uses exceptions to represent
+many runtime errors.
+
+Common exceptions: - ValueError: a value has the correct general type
+but an invalid value for the operation. - TypeError: an operation is
+applied to an inappropriate type. - KeyError: a dictionary key is
+missing. - IndexError: a sequence index is out of range. -
+FileNotFoundError: a requested file does not exist. - ZeroDivisionError:
+division by zero is attempted.
+
+Use try and except to handle expected failures.
+
+    values = ["15", "8", "abc", "12"]
+
+    for value in values:
+        try:
+            number = int(value)
+            print(number)
+        except ValueError:
+            print("Invalid integer:", value)
+
+Catch specific exceptions whenever possible. A broad except clause can
+hide programming errors and make debugging difficult.
+
+The else block runs when no exception occurs. The finally block runs
+whether or not an exception occurred and is often used for cleanup.
+
+11. File Handling
+
+Python can read and write text files using open(). The with statement
+manages the file resource and closes it automatically.
+
+    with open("notes.txt", "r", encoding="utf-8") as file:
+        content = file.read()
+
+Common file modes: - “r”: read an existing file. - “w”: write a file,
+replacing existing content. - “a”: append to the end of a file. - “x”:
+create a new file and fail if it already exists.
+
+Use encoding=“utf-8” for predictable text handling across many
+languages.
+
+To process a large file, iterate over it line by line instead of loading
+the entire file into memory.
+
+    with open("notes.txt", "r", encoding="utf-8") as file:
+        for line in file:
+            print(line.strip())
+
+12. Modules, Packages, and Environments
+
+A module is a Python file that contains reusable code. A package is a
+way to organise related modules.
+
+Import a module with import:
+
+    import math
+    result = math.sqrt(81)
+
+Import a specific name with from:
+
+    from pathlib import Path
+
+The Python Standard Library includes modules for common tasks, including
+pathlib, json, csv, re, datetime, and statistics.
+
+Third-party packages are installed separately, commonly using pip:
+
+    python -m pip install pandas
+
+A virtual environment isolates project dependencies. This helps prevent
+one project’s package versions from interfering with another project’s
+setup.
+
+Create a virtual environment:
+
+    python -m venv .venv
+
+Activate it using the command appropriate for the operating system. On
+macOS or Linux:
+
+    source .venv/bin/activate
+
+13. Useful Libraries for Data and AI
+
+NumPy: Provides efficient multidimensional arrays and numerical
+operations. It is a foundation for many scientific Python libraries.
+
+pandas: Provides Series and DataFrame structures for tabular data
+manipulation, cleaning, filtering, grouping, and analysis.
+
+Matplotlib: A plotting library used to create charts such as line plots,
+bar charts, histograms, and scatter plots.
+
+scikit-learn: Provides tools for preprocessing, model selection,
+supervised learning, unsupervised learning, and evaluation.
+
+spaCy: A natural language processing library that supports tokenisation,
+part-of-speech tagging, named entity recognition, and other
+language-processing tasks.
+
+NLTK: A toolkit for working with human language data, including
+tokenisation, corpora, and linguistic processing.
+
+PyTorch: A deep learning framework based on tensors and automatic
+differentiation. It is used to build and train neural networks.
+
+14. Python for Data Processing: A Small Example
+
+The following example converts valid numeric strings to integers and
+ignores invalid values.
+
+    raw_values = ["10", "20", "invalid", "30"]
+    numbers = []
+
+    for value in raw_values:
+        try:
+            numbers.append(int(value))
+        except ValueError:
+            print(f"Skipping invalid value: {value}")
+
+    print(numbers)
+    print("Total:", sum(numbers))
+
+Expected list output:
+
+    [10, 20, 30]
+
+Expected total:
+
+    60
+
+This example demonstrates iteration, type conversion, exception
+handling, list methods, and a built-in aggregation function.
+
+15. Best Practices
+
+-   Write readable code and use meaningful variable and function names.
+-   Keep functions focused on one responsibility.
+-   Use comments to explain intent or non-obvious decisions, not to
+    repeat every line.
+-   Handle expected errors explicitly.
+-   Validate external input before relying on it.
+-   Use virtual environments to manage project dependencies.
+-   Avoid hard-coding secrets such as passwords and API keys.
+-   Write tests for important behaviour and edge cases.
+-   Use version control, such as Git, to track changes.
+-   Prefer well-maintained libraries over reimplementing complex
+    functionality without a reason.
+
+16. Key Terms
+
+Interpreter: A program that executes Python code.
+
+Expression: Code that evaluates to a value, such as 2 + 3.
+
+Statement: An instruction that performs an action, such as an assignment
+or loop.
+
+Iterable: An object that can provide its elements one at a time, such as
+a list or string.
+
+Mutable: An object whose contents can be changed after creation.
+
+Immutable: An object whose contents cannot be changed after creation.
+
+Exception: An event that interrupts normal program execution and can be
+handled with exception-handling code.
+
+Library: Reusable code that provides functionality for other programs.
+
+API: A defined interface through which software components communicate.
+
+Summary
+
+Python is a readable, versatile language used across software
+development, automation, data analysis, and AI. Its core building blocks
+include variables, data types, collections, conditions, loops,
+functions, exceptions, and modules. Understanding these fundamentals
+makes it easier to work with libraries such as pandas, scikit-learn,
+spaCy, and PyTorch.

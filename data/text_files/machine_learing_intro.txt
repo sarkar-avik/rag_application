@@ -1,0 +1,281 @@
+MACHINE LEARNING INTRODUCTION
+
+1. What Is Machine Learning?
+
+Machine learning (ML) is a field of artificial intelligence that enables
+computer systems to learn patterns from data and use those patterns to
+make predictions, classifications, or decisions. Instead of writing a
+separate rule for every possible situation, developers train a model
+using examples.
+
+A machine learning model is a mathematical or computational function
+that maps input data to an output. During training, the model adjusts
+its internal parameters to reduce the difference between its predictions
+and the expected answers.
+
+Example: A model can learn to predict house prices from historical
+examples. Inputs may include location, floor area, number of bedrooms,
+and property age. The target output is the sale price.
+
+Machine learning does not automatically understand data in the way a
+human does. It identifies statistical patterns in the training data. The
+quality of its results depends on the data, the problem formulation, the
+model, and the evaluation method.
+
+2. Main Types of Machine Learning
+
+Supervised learning: The model learns from labelled examples. Each
+training record contains input features and a known target. The model
+learns a relationship between the features and target, then predicts
+targets for new records.
+
+Common supervised tasks: - Regression predicts a continuous numerical
+value, such as temperature, salary, or house price. - Classification
+predicts a category, such as spam versus not spam, or positive versus
+negative sentiment.
+
+Unsupervised learning: The model receives data without target labels and
+attempts to discover structure or patterns. Common tasks include
+clustering, dimensionality reduction, and anomaly detection.
+
+Examples: - Clustering customers according to purchasing behaviour. -
+Grouping news articles by topic. - Detecting unusual transactions
+without having a label for every fraudulent transaction.
+
+Semi-supervised learning: The model is trained using a small labelled
+dataset together with a larger unlabelled dataset. This can be useful
+when labelling data is expensive or time-consuming.
+
+Reinforcement learning: An agent interacts with an environment, takes
+actions, and receives rewards or penalties. It learns a policy that aims
+to maximise cumulative reward. Applications include robotics,
+game-playing, and resource allocation.
+
+3. Features, Labels, and Datasets
+
+A feature is an input variable used by a model. In a house-price
+dataset, examples include area, location, and number of rooms.
+
+A label or target is the value the model is expected to predict. For a
+house-price task, the label is the actual sale price.
+
+A dataset is a collection of records or examples. A tabular dataset
+commonly stores each example as a row and each feature as a column.
+
+Typical dataset partitions: - Training set: used to fit model
+parameters. - Validation set: used to compare models and tune
+hyperparameters. - Test set: used for a final, relatively unbiased
+estimate of performance.
+
+The test set should not be repeatedly used to make modelling decisions.
+Doing so leaks information from the test data into the development
+process and can make reported performance overly optimistic.
+
+4. The Machine Learning Workflow
+
+A practical ML project often follows these stages:
+
+1.  Define the problem. Specify the decision or prediction to support,
+    the target variable, and what success means.
+2.  Collect data. Identify relevant sources and confirm that the data
+    can be used appropriately.
+3.  Explore the data. Inspect distributions, missing values, outliers,
+    class balance, and relationships between variables.
+4.  Prepare the data. Correct data-quality problems, encode categorical
+    variables, scale numerical variables when appropriate, and create
+    useful features.
+5.  Split the dataset. Create training, validation, and test partitions
+    using a strategy appropriate to the data.
+6.  Establish a baseline. Train a simple model or use a simple rule to
+    create a performance reference.
+7.  Train candidate models. Fit one or more algorithms using the
+    training data.
+8.  Tune hyperparameters. Select settings using validation data or
+    cross-validation.
+9.  Evaluate. Use metrics that reflect the real task and its costs.
+10. Deploy and monitor. Integrate the model into a product or process,
+    then monitor performance and data quality over time.
+
+Data preparation must be learned from training data only when it
+estimates quantities such as means, standard deviations, or category
+vocabularies. Applying transformations fitted on the full dataset can
+cause data leakage.
+
+5. Common Algorithms
+
+Linear regression: A supervised regression algorithm that models a
+target as a weighted sum of input features, often with an intercept. It
+is commonly used as an interpretable baseline for numerical prediction.
+
+Logistic regression: A supervised classification algorithm. Despite its
+name, it is commonly used for classification. It estimates class
+probabilities, often by applying a logistic function to a linear
+combination of features.
+
+Decision tree: A model that makes predictions through a sequence of
+feature-based splits. Trees are relatively easy to interpret, but a deep
+tree can overfit the training data.
+
+Random forest: An ensemble of decision trees trained with randomness in
+their data samples and feature selection. Combining many trees can
+improve predictive stability and reduce the variance of a single tree.
+
+Gradient boosting: An ensemble technique that builds models
+sequentially, with later models focusing on errors made by earlier ones.
+Implementations such as XGBoost, LightGBM, and CatBoost are widely used
+for structured data.
+
+K-nearest neighbours (KNN): A method that predicts using the labels or
+values of nearby training examples. Distance calculations can be
+affected by feature scales, so scaling is often important.
+
+K-means: An unsupervised clustering algorithm that assigns observations
+to a chosen number of clusters by minimising within-cluster squared
+distances to cluster centroids. The number of clusters, K, must be
+selected.
+
+6. Model Training and the Loss Function
+
+Training is the process of adjusting model parameters to minimise a loss
+function. A loss function measures how far predictions are from desired
+outputs according to a defined mathematical objective.
+
+Mean squared error (MSE) is a common regression loss. It is the average
+of squared differences between actual and predicted values. Squaring
+gives larger errors more influence.
+
+For classification, cross-entropy loss is commonly used. It penalises
+incorrect probability assignments, especially when a model assigns high
+confidence to the wrong class.
+
+An optimiser is an algorithm that updates model parameters to reduce the
+loss. Gradient descent uses gradients of the loss with respect to
+parameters to determine an update direction.
+
+A learning rate controls the size of parameter updates. If it is too
+high, training may become unstable; if it is too low, training may be
+very slow.
+
+7. Overfitting, Underfitting, and Generalisation
+
+Overfitting occurs when a model learns details and noise specific to the
+training data rather than patterns that generalise. An overfit model may
+achieve excellent training performance but perform poorly on unseen
+data.
+
+Underfitting occurs when a model is too simple, insufficiently trained,
+or poorly specified to capture the important patterns. It performs
+poorly on both training and unseen data.
+
+Generalisation is the ability to perform well on new examples drawn from
+the intended data distribution.
+
+Ways to reduce overfitting include: - Collecting more representative
+training data. - Reducing model complexity. - Using regularisation. -
+Applying cross-validation for model selection. - Using early stopping
+where appropriate. - Removing leakage and checking for duplicate or
+near-duplicate records across splits.
+
+Regularisation adds a penalty to the training objective to discourage
+overly complex parameter values. L1 regularisation can encourage sparse
+coefficients; L2 regularisation discourages large coefficients.
+
+8. Evaluation Metrics
+
+For regression: - MAE (Mean Absolute Error): average absolute difference
+between predictions and actual values. It is expressed in the target’s
+units. - MSE (Mean Squared Error): average squared error. It gives
+larger errors greater influence. - RMSE (Root Mean Squared Error):
+square root of MSE, expressed in the target’s units. - R-squared:
+measures the proportion of target variance explained relative to a
+mean-prediction baseline under the standard definition. It can be
+negative on test data.
+
+For classification: - Accuracy: proportion of all predictions that are
+correct. - Precision: proportion of predicted positives that are truly
+positive. - Recall: proportion of actual positives that are correctly
+identified. - F1-score: harmonic mean of precision and recall. -
+Confusion matrix: counts true positives, true negatives, false
+positives, and false negatives. - ROC-AUC: measures ranking performance
+across classification thresholds using the true-positive and
+false-positive rates.
+
+Accuracy can be misleading when classes are imbalanced. For example, if
+only one percent of transactions are fraudulent, a model that always
+predicts legitimate transactions achieves 99 percent accuracy but
+detects no fraud. Precision, recall, F1-score, PR-AUC, and the business
+cost of errors may be more informative.
+
+9. Data Leakage and Responsible Evaluation
+
+Data leakage occurs when information unavailable at prediction time
+influences model training or evaluation. Examples include using a
+feature recorded after the outcome, fitting preprocessing on the
+complete dataset before splitting, or allowing records from the same
+person to appear in both training and test sets when that would inflate
+performance.
+
+The split strategy should reflect how the model will be used.
+Time-dependent problems often require chronological splits. Grouped data
+may require group-based splits.
+
+A useful evaluation should consider more than a single score. Review
+subgroup performance, calibration when probabilities matter, robustness
+to data changes, latency, interpretability requirements, and the
+consequences of false positives and false negatives.
+
+10. Practical Example: Predicting Customer Churn
+
+Suppose a company wants to predict whether a customer will cancel a
+subscription in the next 30 days.
+
+-   Problem type: supervised binary classification.
+-   Features: tenure, recent usage, support contacts, plan type, and
+    billing history.
+-   Label: whether the customer cancelled within the defined future
+    period.
+-   Baseline: predict the majority class or use a simple logistic
+    regression model.
+-   Evaluation: examine recall and precision for the churn class, along
+    with PR-AUC and the cost of retention actions.
+-   Deployment: generate risk scores at a defined point in time.
+-   Monitoring: track data drift, prediction distributions, delayed
+    labels, and performance over time.
+
+The feature definitions must use only information available at the
+prediction date. Otherwise, the model may appear accurate during
+development but fail in production.
+
+11. Key Terms
+
+Algorithm: A procedure or set of rules used to solve a computational
+problem.
+
+Model: The fitted function or system produced by a learning algorithm.
+
+Parameter: A value learned from data during training.
+
+Hyperparameter: A configuration value set outside the normal
+parameter-learning process, such as tree depth or learning rate.
+
+Inference: Using a trained model to generate predictions for new inputs.
+
+Feature engineering: Creating, transforming, or selecting input
+variables to improve model usefulness.
+
+Baseline: A simple reference approach used to judge whether a more
+complex model adds value.
+
+Data drift: A change in the distribution of input data over time.
+
+Concept drift: A change in the relationship between input features and
+the target over time.
+
+Summary
+
+Machine learning uses data to learn patterns that support prediction or
+decision-making. A reliable ML solution requires a clearly defined
+problem, representative data, leakage-aware preparation, suitable
+algorithms, meaningful evaluation, and ongoing monitoring. A high
+training score alone does not demonstrate that a model will perform well
+in the real world.
